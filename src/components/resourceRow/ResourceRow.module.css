@@ -1,0 +1,9 @@
+.resourceRow {
+  display: flex;
+  width: fit-content;
+}
+.eventContainer {
+  display: flex;
+  position: relative;
+  width: 100%;
+}

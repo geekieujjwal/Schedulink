@@ -1,0 +1,52 @@
+.overlay {
+  background-color: rgba(0, 0, 0, 0.699);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content_wrapper {
+  background-color: white;
+  min-width: 500px;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  margin: 0 auto;
+  text-align: center;
+  padding: 10px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 20px;
+}
+.content div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+input,
+select {
+  padding: 5px;
+  flex-grow: 1;
+  max-width: 250px;
+  outline: none;
+}
+.button_container {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
