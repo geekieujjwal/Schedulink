@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 import styles from "./Header.module.css";
 import { FaLessThan, FaGreaterThan } from "react-icons/fa6";
+import { Tooltip } from "react-tooltip";
+import "react-tooltip/dist/react-tooltip.css";
 import Modal from "../modal";
 import { useState } from "react";
 import moment from "moment";
@@ -15,14 +17,15 @@ const Header = ({
   resources,
   setCurrentDate,
 }) => {
-  const formattedDate = currentDate.format("MMMM YYYY").toUpperCase();
+  const formattedYear = currentDate.format("YYYY").toUpperCase();
+  const formattedMonth = currentDate.format("MMMM").toUpperCase();
   const [isResourceModalOpen, setIsResourceModalOpen] = useState(false);
   const [isEventModalOpen, setIsEventModalOpen] = useState(false);
 
   return (
     <>
       <header className={styles.wrapper}>
-        <div>{formattedDate}</div>
+        <div>Year - {formattedYear}</div>
         <div className={styles.action_buttons}>
           <Button
             buttonText="Add Event"
@@ -45,9 +48,27 @@ const Header = ({
           />
         </div>
         <div className={styles.btns}>
-          <FaLessThan onClick={handlePrevMonth} />
-          <span onClick={() => setCurrentDate(moment())}>Today</span>
-          <FaGreaterThan onClick={handleNextMonth} />
+          <FaLessThan
+            data-tooltip-id="tooltip-prev"
+            data-tooltip-content="Previous Month"
+            onClick={handlePrevMonth}
+          />
+          <span
+            style={{ width: "110px", textAlign: "center" }}
+            data-tooltip-id="tooltip-current"
+            data-tooltip-content="Current Month"
+            onClick={() => setCurrentDate(moment())}
+          >
+            {formattedMonth}
+          </span>
+          <FaGreaterThan
+            data-tooltip-id="tooltip-next"
+            data-tooltip-content="Next Month"
+            onClick={handleNextMonth}
+          />
+          <Tooltip id="tooltip-prev" />
+          <Tooltip id="tooltip-current" />
+          <Tooltip id="tooltip-next" />
         </div>
       </header>
       {isResourceModalOpen && (
@@ -110,6 +131,7 @@ const EventModal = ({ handleCreateEvent, resources, onClose }) => {
       <div>
         <label>Event Name:</label>
         <input
+          placeholder="Enter Event Name"
           type="text"
           value={eventName}
           onChange={(e) => setEventName(e.target.value)}
