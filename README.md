@@ -78,5 +78,4 @@ This project is licensed under the MIT License. You can use it for any personal 
 
 ## Contact
 
-For any questions or feedback, please reach out to me at uttapalsangwan@gmail.com.
-# Schedulink
+For any questions or feedback, please reach out to me at ujjwaljagurijob@gmail.com.
